@@ -11,7 +11,7 @@ router.get('/private', isAuth);
 
 router.get('/public', async (req, res, next) => {
     try {
-        res.json({ message: "here is your public resource" });
+        res.status(200).json({ message: "here is your public resource" });
     } catch (err) {
       res.json({ error: err.message || err.toString() });
     }
