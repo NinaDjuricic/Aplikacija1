@@ -21,8 +21,6 @@ app.use(router);
 
 sequelize.sync(); 
 
-<<<<<<< HEAD
+
 app.listen(process.env.PORT || 5000)
-=======
-app.listen(process.env.PORT || 5000)
->>>>>>> 4ee79cc041e1426a17285b1d0598de091be5ce2f
+
