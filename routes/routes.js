@@ -9,9 +9,16 @@ router.post('/signup', signup);
 
 router.get('/private', isAuth);
 
-router.get('/public', (req, res, next) => {
-    res.status(200).json({ message: "here is your public resource" });
-});
+router.get('/connection-test', (req, res) => {
+    req.services.clientGatewayService
+     .testGateway()
+     .then(() => {
+      res.status(200).json({isConnected: true});
+     })
+     .catch(() => {
+      res.status(404).json({isConnected: false});
+     });
+   });
 
 // will match any other path
 router.use('/', (req, res, next) => {
